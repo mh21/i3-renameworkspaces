@@ -42,7 +42,7 @@ sub updatelabels {
         recurse($_[0]->recv(), $wss);
         #say Dumper($_[0]->recv());
         #say Dumper($wss);
-        while (my ($num, $ws) = each($wss)) {
+        while (my ($num, $ws) = each(%$wss)) {
             my $oldname = $$ws{'name'};
             my $newname = join(': ', $num, join(' ', @{$$ws{'windows'}}) || ());
             if ($num >= 1 && $oldname ne $newname) {
