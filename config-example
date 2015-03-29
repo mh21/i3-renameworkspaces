@@ -1,6 +1,15 @@
 {
-    "navigator": "ff",
-    "gnome-terminal": "term",
-    "vclsalframe.documentwindow": "lo",
-    "soffice": "lo"
+    "layouts": {
+        "home": "default",
+        "laptop": "tabbed"
+    },
+    "classes": {
+        "firefox": "ff",
+        "gnome-terminal": "term",
+        "libreoffice-writer": "writer",
+        "libreoffice-calc": "calc",
+        "chromium-browser": "chrome",
+    },
+    "instances": {
+    }
 }

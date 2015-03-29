@@ -23,15 +23,25 @@ Add something like the following to your i3 config:
 
 ## Configuration
 
-The mapping between X11 window instances and the used short names can be configured in the configuration file, which defaults to `~/.i3renameworkspacesconfig`.
-An example can be found in [config-example](config-example):
+The mapping between X11 window classes/instances and the used short names can be configured in the configuration file, which defaults to `~/.i3workspaceconfig`.
+Additionally, you can specify the default workspace layout depending on the hostname (as returned by `hostname`).
+An example can be found in `config-example`:
 
 ```json
 {
-    "navigator": "ff",
-    "gnome-terminal": "term",
-    "vclsalframe.documentwindow": "lo",
-    "soffice": "lo"
+    "layouts": {
+        "home": "default",
+        "laptop": "tabbed"
+    },
+    "classes": {
+        "firefox": "ff",
+        "gnome-terminal": "term",
+        "libreoffice-writer": "writer",
+        "libreoffice-calc": "calc",
+        "chromium-browser": "chrome",
+    },
+    "instances": {
+    }
 }
 ```
 
