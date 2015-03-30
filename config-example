@@ -1,8 +1,4 @@
 {
-    "layouts": {
-        "home": "default",
-        "laptop": "tabbed"
-    },
     "classes": {
         "firefox": "ff",
         "gnome-terminal": "term",

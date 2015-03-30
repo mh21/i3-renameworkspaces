@@ -24,15 +24,10 @@ Add something like the following to your i3 config:
 ## Configuration
 
 The mapping between X11 window classes/instances and the used short names can be configured in the configuration file, which defaults to `~/.i3workspaceconfig`.
-Additionally, you can specify the default workspace layout depending on the hostname (as returned by `hostname`).
 An example can be found in `config-example`:
 
 ```json
 {
-    "layouts": {
-        "home": "default",
-        "laptop": "tabbed"
-    },
     "classes": {
         "firefox": "ff",
         "gnome-terminal": "term",

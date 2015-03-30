@@ -70,21 +70,10 @@ sub updatelabels {
     });
 }
 
-sub defaultlayout {
-    my ($msg) = @_;
-    my $layout = $$config{'layouts'}{$hostname};
-    # TODO: this still doesn't work for the first initial workspace+terminal
-    return unless $layout &&
-        ($$msg{'change'} eq 'init' ||
-         $$msg{'change'} eq 'focus' && scalar @{$$msg{'current'}{'nodes'}} == 0);
-    my $con_id = $$msg{'current'}{'id'};
-    $i3->command(qq|[con_id="$con_id"] layout $layout|);
-}
-
 $i3->subscribe({
-    window    => sub { say('window');    updatelabels();                    },
-    workspace => sub { say('workspace'); updatelabels(); defaultlayout(@_); },
-    _error    => sub { say('error');     exit(1);                           }
+    window    => sub { say('window');    updatelabels(); },
+    workspace => sub { say('workspace'); updatelabels(); },
+    _error    => sub { say('error');     exit(1);        }
 })->recv()->{'success'} or die('Error subscribing to events');
 
 # event loop
