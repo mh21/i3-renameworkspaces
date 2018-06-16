@@ -4,7 +4,7 @@
         "gnome-terminal": "term",
         "libreoffice-writer": "writer",
         "libreoffice-calc": "calc",
-        "chromium-browser": "chrome",
+        "chromium-browser": "chrome"
     },
     "instances": {
     }
