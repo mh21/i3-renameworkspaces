@@ -40,6 +40,23 @@ An example can be found in `config-example`:
 }
 ```
 
+## Note
+
+> How am I able to jump directly to these dynamically-named workspaces?
+
+[In the i3
+docs](https://i3wm.org/docs/userguide.html#_changing_named_workspaces_moving_to_workspaces),
+there's a specific syntax to jump to the corresponding number of workspaces that
+follow the naming convention `\d:.*`:
+
+> Note that the workspace will really be named "1: mail". i3 treats workspace
+> names beginning with a number in a slightly special way. Normally, named
+> workspaces are ordered the way they appeared. When they start with a number,
+> i3 will order them numerically. Also, you will be able to use workspace number
+> 1 to switch to the workspace which begins with number 1, regardless of which
+> name it has. This is useful in case you are changing the workspace’s name
+> dynamically.
+
 ## About
 
 Get the latest version, submit pull requests, and file bug reports on GitHub:
