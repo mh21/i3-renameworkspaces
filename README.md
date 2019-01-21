@@ -17,9 +17,15 @@ The resulting names are prefixed with the workspace number, so all commands usin
 
 ## Installation
 
+Install the perl package `Linux::Inotify2`, e.g. by running
+
+    sudo apt install liblinux-inotify2-perl
+
 Add something like the following to your i3 config:
 
     exec_always --no-startup-id exec i3-renameworkspaces.pl
+
+Make sure to use workspace rules like `workspace number X` in all commands in your i3 config so they will continue to work with renamed workspaces.
 
 ## Configuration
 
@@ -56,6 +62,16 @@ follow the naming convention `\d:.*`:
 > 1 to switch to the workspace which begins with number 1, regardless of which
 > name it has. This is useful in case you are changing the workspace’s name
 > dynamically.
+
+The `xprop` program can be used to determine the classes and instances of windows, look for `WM_CLASS` in the output.
+
+Short names can also be combined with iconic fonts like [Font Awesome](https://fontawesome.com) ([cheatsheet](https://fontawesome.com/cheatsheet)) with a font fallback sequence in your i3 configuration file like
+
+```
+bar {
+    font pango:DejaVu Sans Mono, FontAwesome 8
+}
+```
 
 ## About
 
