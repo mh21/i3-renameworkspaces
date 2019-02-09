@@ -42,10 +42,10 @@ sub recurse {
         $$wss{$$parent{'num'}} = { name => $$parent{'name'}, windows => ($windows = [])};
     }
     if ($$parent{'window_properties'}) {
-        my $class = $$parent{'window_properties'}{'class'};
         my $instance = $$parent{'window_properties'}{'instance'};
-        my $name = $$config{'classes'}{$class} ||
-                   $$config{'instances'}{$instance} ||
+        my $class = $$parent{'window_properties'}{'class'};
+        my $name = $$config{'instances'}{$instance} ||
+                   $$config{'classes'}{$class} ||
                    lc($class);
         push(@$windows, $name) if !grep {$_ eq $name} @$windows;
     }
