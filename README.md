@@ -9,7 +9,12 @@ Rename [i3](https://i3wm.org) workspaces to contain the names of the programs on
 
 Workspaces in i3 have numbers and/or names, and can be renamed as documented at <http://i3wm.org/docs/userguide.html#_changing_named_workspaces_moving_to_workspaces>.
 This script connects to i3 via its IPC interface and continuously updates the workspace names to reflect the programs running on them.
-The resulting names are prefixed with the workspace number, so all commands using `workspace number X` continue to work.
+The resulting names are prefixed with the workspace number, so all commands using `workspace number X` continue to work:
+
+```
+bindsym $mod+3 workspace number 3
+bindsym $mod+Shift+3 move container to workspace number 3
+```
 
 ## Screenshots
 
