@@ -9,7 +9,7 @@
         "chromium-browser": "chrome"
     },
     "staticnames": {
-        "1": "work",
+        "1": "main",
         "2": "confs",
         "4": "video",
         "6": "pdfs",
