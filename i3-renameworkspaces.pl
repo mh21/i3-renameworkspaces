@@ -47,9 +47,13 @@ sub recurse {
         }        
     }
     if ($$parent{'window_properties'}) {
-        my $instance = $$parent{'window_properties'}{'instance'};
-        my $class = $$parent{'window_properties'}{'class'};
-        my $name = $$config{'instances'}{$instance} ||
+        my $title = lc($$parent{'window_properties'}{'title'});
+        my $role = lc($$parent{'window_properties'}{'window_role'});
+        my $instance = lc($$parent{'window_properties'}{'instance'});
+        my $class = lc($$parent{'window_properties'}{'class'});
+        my $name = $$config{'titles'}{$title} ||
+                   $$config{'roles'}{$role} ||
+                   $$config{'instances'}{$instance} ||
                    $$config{'classes'}{$class} ||
                    lc($class);
         push(@$windows, $name) if !grep {$_ eq $name} @$windows;
