@@ -3,9 +3,16 @@
         "firefox": "ff",
         "gnome-terminal": "term",
         "libreoffice-writer": "writer",
-        "libreoffice-calc": "calc",
-        "chromium-browser": "chrome"
+        "libreoffice-calc": "calc"
     },
     "instances": {
+        "chromium-browser": "chrome"
+    },
+    "staticnames": {
+        "1": "main",
+        "2": "confs",
+        "4": "video",
+        "6": "pdfs",
+        "8": "gimp"
     }
 }

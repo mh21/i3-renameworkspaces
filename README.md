@@ -51,6 +51,20 @@ An example can be found in `config-example`:
 }
 ```
 
+You can choose which workspaces are controlled by i3-renameworkspaces, by assigning permanent names to some workspaces in the "staticnames" section of the configuration file. Those workspaces will not be assigned dynamically generated names:
+
+
+```json
+    "staticnames": {
+        "1": "main",
+        "2": "confs",
+        "4": "video",
+        "6": "pdfs",
+        "8": "gimp"
+    }
+```
+
+
 ## Note
 
 > How am I able to jump directly to these dynamically-named workspaces?
