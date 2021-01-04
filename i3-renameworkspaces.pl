@@ -48,7 +48,7 @@ sub recurse {
     }
     if ($$parent{'window_properties'}) {
         my $title = lc($$parent{'window_properties'}{'title'});
-        my $role = lc($$parent{'window_properties'}{'window_role'});
+        my $role = lc($$parent{'window_properties'}{'window_role'} || '');
         my $instance = lc($$parent{'window_properties'}{'instance'});
         my $class = lc($$parent{'window_properties'}{'class'});
         my $name = $$config{'titles'}{$title} ||
