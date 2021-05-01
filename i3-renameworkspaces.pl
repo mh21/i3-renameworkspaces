@@ -17,7 +17,7 @@ getopts('hc:', \my %opts);
 $opts{'h'} and say("Usage: i3-renameworkspaces.pl [-h] [-c configfile]"), exit(1);
 
 # config file handling
-my $configname = $opts{'c'} || $ENV{'HOME'} . '/.i3workspaceconfig';
+my $configname = $opts{'c'} || locate_config_file();
 my $config = {};
 if (open(my $fh, '<', $configname)) {
     local $/; $config = decode_json(<$fh>); close($fh);
@@ -44,7 +44,7 @@ sub recurse {
         }
         else {
             $$wss{$$parent{'num'}} = {  windows => ($windows = []), oldname=> $$parent{'name'}};
-        }        
+        }
     }
     if ($$parent{'window_properties'}) {
         my $title = lc($$parent{'window_properties'}{'title'});
@@ -84,6 +84,39 @@ sub updatelabels {
             }
         }
     });
+}
+
+sub locate_config_file {
+    my $filename = "i3workspaceconfig";
+
+    my $config_home_dir;
+    if ( defined( $ENV{'XDG_CONFIG_HOME'} ) ) {
+        $config_home_dir = "$ENV{'XDG_CONFIG_HOME'}";
+    }
+    else {
+        $config_home_dir = "$ENV{'HOME'}/.config";
+    }
+
+    my @config_path_proposal = (
+                                 "$config_home_dir/$filename",
+                                 "$config_home_dir/i3-renameworkspaces/config",
+                                 "$ENV{'HOME'}/.$filename"
+                               );
+    my $config_path;
+    foreach my $candidate (@config_path_proposal) {
+        if ( -e $candidate && -f _ && -r _ ) {
+            say "Config found: $candidate";
+            $config_path = $candidate;
+            last;
+        }
+    }
+
+    if ( not length $config_path ) {
+        $config_path = "$ENV{'HOME'}/.$filename";
+        say "Config default: $config_path";
+    }
+
+    return $config_path;
 }
 
 $i3->subscribe({
