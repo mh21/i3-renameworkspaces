@@ -20,7 +20,10 @@ $opts{'h'} and say("Usage: i3-renameworkspaces.pl [-h] [-c configfile]"), exit(1
 my $configname = $opts{'c'} || $ENV{'HOME'} . '/.i3workspaceconfig';
 my $config = {};
 if (open(my $fh, '<', $configname)) {
-    local $/; $config = decode_json(<$fh>); close($fh);
+    local $/;
+    my $json = JSON::PP->new->utf8->relaxed;
+    $config = $json->decode(<$fh>);
+    close($fh);
 }
 my $inotify = new Linux::Inotify2 or die("Unable to create new inotify object: $!");
 my $inotifyw = $inotify->watch($configname, IN_MOVED_TO | IN_CLOSE_WRITE | IN_DELETE, sub {
